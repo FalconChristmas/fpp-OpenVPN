@@ -1,0 +1,109 @@
+{
+    "settingGroups": {
+        "openvpnsettings": {
+            "description": "OpenVPN Settings",
+            "settings": [
+                "mode",
+                "autostart",
+                "server",
+                "port",
+                "protocol",
+                "pool"
+            ]
+        }
+    },
+    "attributes": {
+        "level": 0,
+        "gatherStats": false,
+        "restart": 0,
+        "reboot": 0,
+        "default": ""
+    },
+    "settings": {
+        "mode": {
+            "name": "mode",
+            "description": "OpenVPN Mode",
+            "tip": "Client mode will connect to a remote server.  Server mode listens for connections from remote clients.",
+            "gatherStats": false,
+            "onChange": "OpenVPNmodeChanged",
+            "restart": 0,
+            "type": "select",
+            "options": {
+                "Client": "client",
+                "Server": "server"
+            },
+            "default": "client",
+            "children": {
+                "server": [
+                    "server",
+                    "port",
+                    "protocol",
+                    "pool"
+                ]
+            }
+        },
+        "autostart": {
+            "name": "autostart",
+            "description": "Service Auto-start",
+            "tip": "Set the VPN service to start automatically at system boot (Yes) or require menual starting (No).",
+            "gatherStats": false,
+            "onChange": "OpenVPNautostartChanged",
+            "restart": 0,
+            "type": "select",
+            "default": "yes",
+            "options": {
+                "Yes": "yes",
+                "No": "no"
+            }
+        },
+        "server": {
+            "name": "server",
+            "description": "Server IP/Hostname",
+            "tip": "IP address or hostname that clients will connect to.",
+            "gatherStats": false,
+            "onChange": "OpenVPNserverChanged",
+            "restart": 0,
+            "type": "text",
+            "default": "",
+            "size": 48,
+            "maxlength": 48
+        },
+        "port": {
+            "name": "port",
+            "description": "Port",
+            "tip": "Port used for VPN traffic.",
+            "gatherStats": false,
+            "onChange": "OpenVPNportChanged",
+            "restart": 0,
+            "type": "number",
+            "default": 1194,
+            "min": "1025",
+            "max": "65535"
+        },
+        "protocol": {
+            "name": "protocol",
+            "description": "Protocol",
+            "tip": "Protocol to use for VPN connections.",
+            "gatherStats": false,
+            "onChange": "OpenVPNprotocolChanged",
+            "type": "select",
+            "options": {
+                "UDP": "udp",
+                "TCP": "tcp"
+            },
+            "default": "udp"
+        },
+        "pool": {
+            "name": "pool",
+            "description": "Client IP Pool Subnet",
+            "tip": "Client IPs will be allocated from this subnet pool.  You should not need to change the default unless you are already using this network block.  A /24 subnet will be used, allowing up to 253 clients.",
+            "gatherStats": false,
+            "onChange": "OpenVPNpoolChanged",
+            "restart": 0,
+            "type": "text",
+            "default": "10.20.30.0",
+            "size": 15,
+            "maxlength": 15
+        }
+    }
+}

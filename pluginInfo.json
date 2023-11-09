@@ -1,0 +1,23 @@
+{
+    "repoName": "fpp-OpenVPN",
+    "name": "FPP OpenVPN",
+    "author": "Chris Pinkham (CaptainMurdoch)",
+    "description": "This plugin makes it easy to setup an OpenVPN client or server on a FPP system.  To use FPP as an OpenVPN server behind a firewall or internet router, you may need to port-forward the OpenVPN port to your FPP system.",
+    "homeURL": "https://github.com/FalconChristmas/fpp-OpenVPN",
+    "srcURL": "https://github.com/FalconChristmas/fpp-OpenVPN.git",
+    "bugURL": "https://github.com/FalconChristmas/fpp-OpenVPN/issues",
+    "allowUpdates": 1,
+    "versions": [
+        {
+            "minFPPVersion": "7.0",
+            "maxFPPVersion": "0",
+            "branch": "master",
+            "sha": "",
+            "dependencies": {
+                "packages": [
+                    "openvpn"
+                ]
+            }
+        }
+    ]
+}
